@@ -16,7 +16,7 @@ retina-face==0.0.17
 spotipy==2.25.1
 
 # Utilities
-rich>=10.14.0,<14
+rich==13.7.1
 markdown-it-py==4.0.0
 mdurl==0.1.2
 pygments==2.19.2
