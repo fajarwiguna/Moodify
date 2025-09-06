@@ -7,11 +7,11 @@ opencv-python-headless==4.10.0.84
 numpy>=2.1.0,<2.4
 pandas==2.2.2
 
-# TensorFlow
-tensorflow==2.21.0
-tf-keras==2.21.0
+# TensorFlow CPU compatible Python 3.13
+tensorflow==2.24.0
+tf-keras==2.24.0
 
-# RetinaFace dependency
+# RetinaFace
 retina-face==0.0.17
 
 # Spotify integration
