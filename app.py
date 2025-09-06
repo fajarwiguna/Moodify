@@ -4,8 +4,20 @@ import cv2
 import numpy as np
 import time
 
+
+st.set_page_config(
+    page_title="Moodify",       
+    page_icon="🎧",             
+    layout="centered",           
+    initial_sidebar_state="auto" 
+)
+
 def main():
     """Main function to run the Moodify Streamlit app."""
+    # Load custom CSS
+    with open("style.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
     st.title("🎧 Moodify: AI Mood-to-Music Recommender")
     st.write("Upload a photo, use your webcam, or pick your mood manually to get Spotify playlist recommendations!")
 
@@ -35,9 +47,13 @@ def main():
                     st.write(f"Detected Mood: **{emotion.capitalize()}** (Confidence: {confidence:.2f})")
                     st.write(f"Analysis took {elapsed_time:.2f} seconds")
 
+                    # Warn if confidence is low
+                    if confidence < 0.5:
+                        st.warning("Low confidence in mood detection. Try a clearer photo or override manually.")
+
                     # Show all emotion scores
                     if emotion_scores:
-                        st.write("All Emotion Scores:")
+                        st.markdown("<div class='emotion-scores'>All Emotion Scores:</div>", unsafe_allow_html=True)
                         for emo, score in emotion_scores.items():
                             st.write(f"{emo.capitalize()}: {score:.2f}%")
                     else:
@@ -65,9 +81,13 @@ def main():
                     st.write(f"Detected Mood: **{emotion.capitalize()}** (Confidence: {confidence:.2f})")
                     st.write(f"Analysis took {elapsed_time:.2f} seconds")
 
+                    # Warn if confidence is low
+                    if confidence < 0.5:
+                        st.warning("Low confidence in mood detection. Try a clearer selfie or override manually.")
+
                     # Show all emotion scores
                     if emotion_scores:
-                        st.write("All Emotion Scores:")
+                        st.markdown("<div class='emotion-scores'>All Emotion Scores:</div>", unsafe_allow_html=True)
                         for emo, score in emotion_scores.items():
                             st.write(f"{emo.capitalize()}: {score:.2f}%")
                     else:
@@ -90,7 +110,7 @@ def main():
 
     if emotion is not None:
         if option != "Manual Input":
-            st.write("---")
+            st.markdown("---")
             st.subheader("😎 Not accurate? Override manually:")
             manual_override = st.selectbox(
                 "Adjust your mood if needed:",
@@ -117,7 +137,6 @@ def main():
             except Exception as e:
                 st.error(f"Failed to fetch playlists: {str(e)}. Using default playlist.")
                 st.markdown(f"🎵 [Default Chill Playlist](https://open.spotify.com/playlist/37i9dQZF1DX0UrRvztWcAU)")
-
 
 if __name__ == "__main__":
     main()

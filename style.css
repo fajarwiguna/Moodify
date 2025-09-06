@@ -1,0 +1,127 @@
+/* 🌞 Default Light Mode */
+body, .stApp {
+    background-color: #f0f2f6 !important;
+    color: #222 !important;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Judul */
+h1 {
+    color: #1DB954 !important;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+/* --- Teks Normal & Deskripsi --- */
+.stMarkdown, .stText, .stMarkdown p {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0.5em 0 !important;
+    color: #444 !important;
+    font-size: 1.1em;
+    line-height: 1.6em;
+}
+
+/* Deskripsi Custom */
+.description {
+    text-align: center;
+    color: #444;
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+}
+
+/* --- Tombol --- */
+.stButton>button {
+    background-color: #1DB954 !important;
+    color: white !important;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    transition: background-color 0.3s;
+}
+.stButton>button:hover {
+    background-color: #17a34a !important;
+}
+
+/* --- Widget (selectbox, radio, uploader) --- */
+.stSelectbox, .stRadio, .stFileUploader {
+    background-color: white !important;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #222 !important;
+}
+
+/* Spinner */
+.stSpinner {
+    color: #1DB954 !important;
+}
+
+/* Alerts (success, warning, error) */
+.stSuccess, .stWarning, .stError {
+    border-radius: 8px;
+    padding: 10px;
+    color: #222 !important;
+}
+
+/* Link */
+.stMarkdown a {
+    color: #1DB954 !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+.stMarkdown a:hover {
+    text-decoration: underline;
+}
+
+/* Emotion Scores Box */
+.emotion-scores {
+    background-color: #ffffff !important;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    color: #222 !important;
+}
+
+/* 🌙 Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body, .stApp {
+        background-color: #121212 !important;
+        color: #f0f0f0 !important;
+    }
+
+    h1 {
+        color: #1DB954 !important;
+    }
+
+    .stMarkdown, .stText, .stMarkdown p {
+        color: #e0e0e0 !important;
+    }
+
+    .description {
+        color: #e0e0e0 !important;
+    }
+
+    .stSelectbox, .stRadio, .stFileUploader {
+        background-color: #1e1e1e !important;
+        color: #f0f0f0 !important;
+        border: 1px solid #333 !important;
+    }
+
+    .stSuccess, .stWarning, .stError {
+        background-color: #1e1e1e !important;
+        border: 1px solid #333 !important;
+        color: #f0f0f0 !important;
+    }
+
+    .emotion-scores {
+        background-color: #1e1e1e !important;
+        color: #f0f0f0 !important;
+        border: 1px solid #333 !important;
+    }
+}

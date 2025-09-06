@@ -67,11 +67,12 @@ def detect_emotion(image):
         confidence = emotion_scores[emotion] / 100.0
 
         # Fallback for misdetection
-        if emotion in ["fear", "neutral", "angry"] and confidence < 0.8:  # Added angry, lower threshold
+        if emotion in ["fear", "neutral", "angry"] and confidence < 0.8:
             sorted_emotions = sorted(emotion_scores.items(), key=lambda x: x[1], reverse=True)
-            emotion = sorted_emotions[0][0]  # Take highest score
-            confidence = sorted_emotions[0][1] / 100.0
-            logger.info(f"Overriding to {emotion} with confidence {confidence:.2f}")
+            if sorted_emotions[0][1] > emotion_scores[emotion]:  # Only override if new score is higher
+                emotion = sorted_emotions[0][0]
+                confidence = sorted_emotions[0][1] / 100.0
+                logger.info(f"Overriding to {emotion} with confidence {confidence:.2f}")
 
         logger.info(f"Final detected emotion: {emotion} with confidence: {confidence:.2f}")
         return emotion, confidence, emotion_scores
@@ -97,7 +98,7 @@ def get_spotify_playlist(emotion, language="English"):
         genres = MOOD_TO_GENRE.get(emotion, "chill")
         # Adjust query based on language
         if language == "Indonesia":
-            query = "relax indonesia" if emotion == "neutral" else f"{genres} indonesia"
+            query = random.choice(["relax indonesia", "lo-fi indonesia", "chill indonesia"]) if emotion == "neutral" else f"{genres} indonesia"
         elif language == "Korea":
             query = f"{genres} k-pop"
         elif language == "Japan":
@@ -109,7 +110,7 @@ def get_spotify_playlist(emotion, language="English"):
         logger.info(f"Searching playlists for emotion: {emotion}, language: {language}, query: {query}")
 
         # Search for multiple playlists
-        result = sp.search(q=query, type="playlist", limit=5, offset=random.randint(0, 200))
+        result = sp.search(q=query, type="playlist", limit=10, offset=random.randint(0, 200))
         playlists = result["playlists"]["items"]
         logger.info(f"Spotify API response: {playlists}")
 
