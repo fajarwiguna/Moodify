@@ -95,16 +95,9 @@ This application addresses the common challenge of discovering music that fits o
 
 See the roadmap for the full folder structure, including `docs/` for this overview and diagrams.
 
-## 🚀 Next Steps
-
-1. Set up GitHub repo and commit this document.
-2. Create the System Architecture Diagram (details below).
-3. Proceed to Development phase: Implement emotion detection in `utils.py`.
-
 For questions or contributions, reach out via GitHub issues.
 
 ---
 
-*Last Updated: [Insert Date]*  
-*Author: [Your Name]*  
+*Author: Fajar Satria Wiguna*  
 *License: MIT*
