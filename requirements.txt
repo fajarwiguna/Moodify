@@ -8,8 +8,8 @@ numpy>=2.1.0,<2.4
 pandas==2.2.2
 
 # TensorFlow (CPU-only, lebih ringan & stabil di Streamlit Cloud)
-tensorflow-cpu==2.15.0
-tf-keras==2.15.0
+tensorflow==2.16.1
+tf-keras==2.16.1
 
 # RetinaFace dependency
 retina-face==0.0.17
