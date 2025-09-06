@@ -126,5 +126,5 @@ moodify/
 - Support additional languages and genres.
 - Improve emotion detection with ensemble models.
 
-## License
-This project is licensed under the MIT License.
+## 📜 License
+MIT © Fajar Wiguna
