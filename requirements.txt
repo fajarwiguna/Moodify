@@ -7,9 +7,9 @@ opencv-python-headless==4.10.0.84
 numpy>=2.1.0,<2.4
 pandas==2.2.2
 
-# TensorFlow (CPU-only, lebih ringan & stabil di Streamlit Cloud)
-tensorflow==2.16.1
-tf-keras==2.16.1
+# TensorFlow
+tensorflow-cpu==2.15.0
+tf-keras==2.15.0
 
 # RetinaFace dependency
 retina-face==0.0.17
