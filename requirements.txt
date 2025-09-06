@@ -2,6 +2,7 @@ streamlit==1.38.0
 deepface==0.0.93
 opencv-python-headless==4.10.0.84
 numpy==1.26.4
+pandas==2.2.2
 tensorflow==2.20.0
 torch==2.3.0
 torchvision==0.20.0
